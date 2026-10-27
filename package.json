@@ -1,0 +1,67 @@
+{
+  "name": "@proof.com/x401-agent",
+  "version": "0.1.0",
+  "description": "x401 agent client for Proof: answers PROOF-REQUEST challenges with a user's Proof credential.",
+  "keywords": [
+    "x401",
+    "Agent",
+    "Verifiable Presentation",
+    "OID4VP",
+    "Proof",
+    "Proof.com"
+  ],
+  "homepage": "https://github.com/proof/x401-agent",
+  "bugs": "https://github.com/proof/x401-agent/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/proof/x401-agent.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Jeremie Charrier <jeremie.charrier@proof.com>",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "check-all": "yarn format && yarn lint && yarn typecheck && yarn test && yarn publint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "generate": "openapi-typescript -o src/generated/proof.ts",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "prepare": "npm run build",
+    "publint": "publint --pack npm",
+    "test": "node --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@proof.com/proof-vc-common": "^0.7.0",
+    "@proof.com/x401-node": "^0.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "eslint": "^10.5.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "openapi-typescript": "^7.13.0",
+    "prettier": "^3.8.4",
+    "prettier-plugin-packagejson": "^3.0.2",
+    "publint": "^0.3.21",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.0"
+  },
+  "packageManager": "yarn@4.17.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
