@@ -1,6 +1,6 @@
 {
   "name": "@proof.com/x401-agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "x401 agent client for Proof: answers PROOF-REQUEST challenges with a user's Proof credential.",
   "keywords": [
     "x401",
